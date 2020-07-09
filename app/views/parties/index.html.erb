@@ -1,7 +1,7 @@
 <h1> All Parties </h1>
 <% @parties.each do |p| %>
     <div>
-        <%= p.name %>
+        <%= link_to(p.name, party_path(p))%>
         <%= p.date %>
     </div>
 <% end %>
