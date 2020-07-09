@@ -5,5 +5,6 @@ class PartiesController < ApplicationController
     end
 
     def show
+        @party = Party.find_by_id(params[:id])
     end
 end
