@@ -4,7 +4,6 @@ one:
   name: MyString
   date: 2020-07-09
   category: MyString
-  supplies: MyString
   budget: 1
   private: false
 
@@ -12,6 +11,5 @@ two:
   name: MyString
   date: 2020-07-09
   category: MyString
-  supplies: MyString
   budget: 1
   private: false

@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200709182109) do
+ActiveRecord::Schema.define(version: 2020_07_16_191949) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.date "date"
-    t.string "category"
-    t.string "supplies"
     t.integer "budget"
-    t.boolean "private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "parties_supplies", id: false, force: :cascade do |t|
+    t.integer "party_id"
+    t.integer "supply_id"
+    t.integer "quantity"
+    t.index ["party_id"], name: "index_parties_supplies_on_party_id"
+    t.index ["supply_id"], name: "index_parties_supplies_on_supply_id"
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string "name"
   end
 
 end
