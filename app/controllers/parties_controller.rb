@@ -1,6 +1,10 @@
 class PartiesController < ApplicationController
     def index
-        @parties = Party.all
+        if params[:category_id] && @category = Category.find_by_id(params[:category_id])
+            @parties = @category.parties
+        else
+            @parties = Party.all
+        end
     end
 
     def new

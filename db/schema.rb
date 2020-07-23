@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_191949) do
+ActiveRecord::Schema.define(version: 2020_07_23_182754) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
@@ -18,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_07_16_191949) do
     t.integer "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_parties_on_category_id"
   end
 
   create_table "parties_supplies", id: false, force: :cascade do |t|
