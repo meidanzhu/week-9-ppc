@@ -1,10 +1,16 @@
 class Party < ApplicationRecord
-    def display_private_or_public
-        
-        if self.private == true
-           "Private" 
-        else
-            "Public"
-        end
-    end
+    has_many :parties_supplies
+    has_many :supplies, through: :parties_supplies
+
+    validates :budget, presence: true
+    validates :name, uniqueness: { scope: :date,
+        message: "has already been selected for this day"
+    }
+    validates :date, future: true
+
+
+    def private?
+        'Public'
+    end    
+
 end
